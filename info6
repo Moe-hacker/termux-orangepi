@@ -1,0 +1,31 @@
+clear
+x="\n\n\\033[1;38;2;254;228;208m
+      ╔═║ ╔═║ ╝ []: opi zero2
+      ║ ║ ╔═╝ ║ []: (>_x)
+      ══╝ ╝   ╝ []:
+      [] Temperature :
+      [] Memory      :
+      [] Disk        :
+      [] Uptime      :
+      [] IP          :
+      [] SSH port    :
+       「Keep moe, keep cool」
+"
+printf "$x"
+for i in {1..10}
+do
+  source /sdcard/info
+  printf "\033[6;22H$HOSTNAME      "
+  printf "\033[7;25H$TEMP      "
+  printf "\033[8;25H$MEMORY      "
+  printf "\033[9;25H$DISK      "
+  printf "\033[10;25H$UPTIME      "
+  printf "\033[11;25H$IP      "
+  printf "\033[12;25H$PORT      "
+  if (( $_TEMP <= 40));then
+    printf "\033[7;8H"
+  else
+    printf "\033[7;8H"
+  fi
+  sleep 3s
+done

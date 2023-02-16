@@ -1,0 +1,7 @@
+printf "\033[?25l"
+while :
+do
+  for i in {1..6} {5..2};do
+    bash /sdcard/opi/info$i
+  done
+done
